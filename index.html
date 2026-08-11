@@ -449,6 +449,112 @@
       color: var(--ink);
     }
 
+
+    .creative-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .creative-panel {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #181b21;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .creative-panel:hover {
+      transform: translateY(-5px);
+    }
+
+    .music-panel {
+      background: var(--blue);
+    }
+
+    .creative-label {
+      color: var(--acid);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .creative-panel h3 {
+      margin: 35px 0 14px;
+      font-size: 34px;
+    }
+
+    .creative-panel p {
+      margin: 0;
+      color: rgba(255,255,255,.76);
+      font-size: 16px;
+    }
+
+    .art-photo-block {
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #181b21;
+      overflow: hidden;
+    }
+
+    .art-photo-block img {
+      width: 100%;
+      max-height: 760px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .music-showcase {
+      margin-top: 18px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #181b21;
+    }
+
+    .music-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .music-head .section-kicker {
+      color: var(--acid);
+      margin-bottom: 8px;
+    }
+
+    .music-head h3 {
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .video-card {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     /* ---------- ENGINEERING ---------- */
 
     .two-col {
@@ -582,6 +688,16 @@
       .hero-side {
         grid-template-columns: repeat(3, 1fr);
       }
+
+      .creative-showcase,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-head {
+        align-items: start;
+        flex-direction: column;
+      }
       .project,
       .project:nth-child(n),
       .gallery-item,
@@ -613,7 +729,7 @@
       <a class="brand" href="#">NC / 26</a>
       <div class="nav-links">
         <a href="#projects">Projects</a>
-        <a href="#studio">Photography + Design</a>
+        <a href="#studio">Photography + Music + Art</a>
         <a href="#engineering">Engineering</a>
         <a href="#built">Things I've Built</a>
         <a href="#about">About</a>
@@ -739,13 +855,13 @@
       <div class="wrap">
         <div class="section-head">
           <div class="section-kicker">02 / Nick Cornell Studio</div>
-          <h2>Photography, art + graphic design.</h2>
+          <h2>Photography, music + art.</h2>
         </div>
 
         <p class="studio-intro">
-          Engineering is how I think about systems. Photography and design are how
-          I train myself to notice them — structure, light, geometry, movement,
-          cities and the small details that make a place feel different.
+          Engineering is how I think about systems. Photography, music and art are
+          different ways I explore ideas, structure, rhythm, composition, place
+          and the things that catch my attention.
         </p>
 
         <article class="feature-art">
@@ -778,77 +894,105 @@
           </div>
         </article>
 
-        <div class="gallery">
+        <div class="creative-showcase">
 
-          <figure class="gallery-item">
-            <div class="gallery-image">
-              <img src="images/photo-urban-01.jpg"
-                   alt="Urban photography by Nick Cornell"
-                   onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+          <a class="creative-panel" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
+            <div class="creative-label">Studio / 01</div>
+            <h3>Photography ↗</h3>
+            <p>
+              Street scenes, architecture, cities and landscapes, with a focus on
+              composition, geometry, perspective and the built environment.
+            </p>
+          </a>
+
+          <a class="creative-panel music-panel" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
+            <div class="creative-label">Studio / 02</div>
+            <h3>Music ↗</h3>
+            <p>
+              Digital music production and composition using Logic Pro, FL Studio,
+              GarageBand, keyboards and pad-based production tools.
+            </p>
+          </a>
+
+          <div class="creative-panel">
+            <div class="creative-label">Studio / 03</div>
+            <h3>Art</h3>
+            <p>
+              Large-scale drawing, digital artwork and architecture-inspired visual
+              studies that explore form, repetition, place and structure.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="art-photo-block">
+          <img
+            src="nick-artwork.png"
+            alt="Nick Cornell standing beside a large black and white abstract artwork"
+          />
+        </div>
+
+        <div class="music-showcase">
+          <div class="music-head">
+            <div>
+              <div class="section-kicker">Music</div>
+              <h3>Here are a few of my music projects.</h3>
             </div>
-            <figcaption class="gallery-meta">
-              <strong><a href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">Urban Geometry ↗</a></strong>
-              <span>Photography</span>
-            </figcaption>
-          </figure>
 
-          <figure class="gallery-item">
-            <div class="gallery-image">
-              <img src="images/design-01.jpg"
-                   alt="Graphic design by Nick Cornell"
-                   onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+            <a
+              class="button"
+              href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg"
+              target="_blank"
+              rel="noopener"
+            >
+              View Music Channel ↗
+            </a>
+          </div>
+
+          <div class="video-grid">
+
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/-X5uee8i16w"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
-            <figcaption class="gallery-meta">
-              <strong>Graphic Study</strong>
-              <span>Design</span>
-            </figcaption>
-          </figure>
 
-          <figure class="gallery-item">
-            <div class="gallery-image">
-              <img src="images/photo-city-02.jpg"
-                   alt="City photography by Nick Cornell"
-                   onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/CczfVmkXy0g"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
-            <figcaption class="gallery-meta">
-              <strong>City / Structure</strong>
-              <span>Photography</span>
-            </figcaption>
-          </figure>
 
-          <figure class="gallery-item">
-            <div class="gallery-image">
-              <img src="images/design-02.jpg"
-                   alt="Digital artwork by Nick Cornell"
-                   onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/-gdb5FpmPig"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
-            <figcaption class="gallery-meta">
-              <strong>Digital Composition</strong>
-              <span>Art + Design</span>
-            </figcaption>
-          </figure>
 
-          <figure class="gallery-item">
-            <div class="gallery-image">
-              <img src="images/photo-architecture-03.jpg"
-                   alt="Architecture photography by Nick Cornell"
-                   onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
-            </div>
-            <figcaption class="gallery-meta">
-              <strong>Architecture / Place</strong>
-              <span>Photography</span>
-            </figcaption>
-          </figure>
-
+          </div>
         </div>
 
         <div class="studio-links">
           <a class="button" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
             Photography Instagram ↗
           </a>
-          <!-- Put the exact Blogspot URL here when confirmed -->
-          <a class="button" href="#" aria-label="Nick Cornell Studio archive">
-            Studio Archive ↗
+          <a class="button" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
+            Music Channel ↗
+          </a>
+          <a class="button" href="https://nickcornellstudio.blogspot.com/?m=1" target="_blank" rel="noopener">
+            Art Archive ↗
           </a>
         </div>
       </div>
@@ -925,7 +1069,7 @@
           </div>
           <div class="build-row">
             <span class="num">06</span>
-            <strong>Photography + Digital Art</strong>
+            <strong>Photography + Art</strong>
             <span>Visual Work</span>
           </div>
           <div class="build-row">
@@ -970,7 +1114,7 @@
             </div>
             <div class="fact">
               <strong>Visual Work</strong>
-              <span>Photography, digital art, graphic design</span>
+              <span>Photography, music and visual art</span>
             </div>
             <div class="fact">
               <strong>Outside the Studio</strong>
