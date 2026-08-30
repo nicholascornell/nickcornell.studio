@@ -2378,6 +2378,119 @@ h1{
 }
 </style>
 
+
+<style id="v13-photography">
+#studio .photography-only{
+  grid-template-columns:1fr!important;
+}
+#studio .photography-panel{
+  min-height:190px;
+}
+</style>
+
+
+<style id="v14-photo-gallery">
+.photography-section{
+  margin-top:18px;
+  padding:22px;
+  border:1px solid rgba(255,255,255,.16);
+  background:#111318;
+}
+.photography-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:24px;
+  margin-bottom:16px;
+}
+.photography-heading .creative-label{
+  color:var(--acid);
+}
+.photography-heading h3{
+  margin:5px 0 0!important;
+  font-size:clamp(26px,3vw,40px)!important;
+}
+.photo-instagram{
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.photo-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-auto-rows:185px;
+  gap:8px;
+}
+.photo-tile{
+  margin:0;
+  overflow:hidden;
+  background:#24272c;
+}
+.photo-tile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease;
+}
+.photo-tile:hover img{
+  transform:scale(1.018);
+}
+.photo-wide{
+  grid-column:span 2;
+}
+.photo-tall{
+  grid-row:span 2;
+}
+.photo-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  margin-top:16px;
+}
+.photo-footer p{
+  margin:0;
+  max-width:720px;
+  color:#c7cbd0;
+  font-size:12px!important;
+}
+.photo-footer .button{
+  flex:0 0 auto;
+}
+
+@media(max-width:900px){
+  .photo-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-auto-rows:190px;
+  }
+}
+@media(max-width:620px){
+  .photography-heading,.photo-footer{
+    display:block;
+  }
+  .photo-instagram{
+    display:inline-block;
+    margin-top:10px;
+  }
+  .photo-gallery{
+    grid-template-columns:1fr;
+    grid-auto-rows:240px;
+  }
+  .photo-wide,.photo-tall{
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .photo-footer .button{
+    margin-top:12px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -2664,14 +2777,12 @@ h1{
     <section id="studio" class="studio">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-kicker">04 / Photography, Music + Art</div>
-          <h2>Photography, music + art.</h2>
+          <div class="section-kicker">04 / Photography + Art</div>
+          <h2>Photography + Art.</h2>
         </div>
 
         <p class="studio-intro">
-          Engineering is how I think about systems. Photography, music and art are
-          different ways I explore ideas, structure, rhythm, composition, place
-          and the things that catch my attention.
+          Photography and art are different ways I explore composition, perspective, place, architecture and the things that catch my attention.
         </p>
 
                 <article class="art-horizontal art-horizontal-reversed">
@@ -2701,98 +2812,67 @@ h1{
           </div>
         </article>
 
-        <div class="creative-showcase">
-
-          <a class="creative-panel" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
-            <div class="creative-label">Studio / 01</div>
-            <h3>Photography ↗</h3>
-            <p>
-              Street scenes, architecture, cities and landscapes, with a focus on
-              composition, geometry, perspective and the built environment.
-            </p>
-          </a>
-
-          <a class="creative-panel music-panel" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
-            <div class="creative-label">Studio / 02</div>
-            <h3>Music ↗</h3>
-            <p>
-              Digital music production and composition using Logic Pro, FL Studio,
-              GarageBand, keyboards and pad-based production tools.
-            </p>
-          </a>
-
-          <div class="creative-panel">
-            <div class="creative-label">Studio / 03</div>
-            <h3>Art</h3>
-            <p>
-              Large-scale drawing, digital artwork and architecture-inspired visual
-              studies that explore form, repetition, place and structure.
-            </p>
-          </div>
-
-        </div>
-<div class="music-showcase">
-          <div class="music-head">
+        <div class="photography-section">
+          <div class="photography-heading">
             <div>
-              <div class="section-kicker">Music</div>
-              <h3>Here are a few of my music projects.</h3>
+              <div class="creative-label">Photography</div>
+              <h3>Places, structures + moments.</h3>
             </div>
-
-            <a
-              class="button"
-              href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg"
-              target="_blank"
-              rel="noopener"
-            >
-              View Music Channel ↗
+            <a class="photo-instagram" href="https://www.instagram.com/ncornell_photography/" target="_blank" rel="noopener">
+              @ncornell_photography ↗
             </a>
           </div>
 
-          <div class="video-grid">
+          <div class="photo-gallery">
+            <figure class="photo-tile photo-wide">
+              <img src="photo-nyc-sunset.png" alt="New York City skyline at sunset across the Hudson River">
+            </figure>
 
-            <div class="video-card">
-              <iframe
-                src="https://www.youtube.com/embed/-X5uee8i16w"
-                title="Music project by Nick Cornell"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
+            <figure class="photo-tile">
+              <img src="photo-roadside-architecture.png" alt="Roadside commercial architecture beneath a wide Texas sky">
+            </figure>
 
-            <div class="video-card">
-              <iframe
-                src="https://www.youtube.com/embed/CczfVmkXy0g"
-                title="Music project by Nick Cornell"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
+            <figure class="photo-tile">
+              <img src="photo-wetland-evening.png" alt="Wetland landscape framed by trees in evening light">
+            </figure>
 
-            <div class="video-card">
-              <iframe
-                src="https://www.youtube.com/embed/-gdb5FpmPig"
-                title="Music project by Nick Cornell"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
+            <figure class="photo-tile photo-tall">
+              <img src="photo-rainbow-skyline.png" alt="Rainbow over a city skyline beneath dark storm clouds">
+            </figure>
 
+            <figure class="photo-tile">
+              <img src="photo-lackawanna-terminal.png" alt="Historic Lackawanna Terminal with the Manhattan skyline beyond">
+            </figure>
+
+            <figure class="photo-tile">
+              <img src="photo-waterfront-lamppost.png" alt="Waterfront railing and lamppost overlooking the skyline">
+            </figure>
+
+            <figure class="photo-tile photo-wide">
+              <img src="photo-street-festival.png" alt="Crowded street festival beneath decorative lights">
+            </figure>
+
+            <figure class="photo-tile">
+              <img src="photo-industrial-building.png" alt="Weathered industrial building with layered windows and materials">
+            </figure>
+
+            <figure class="photo-tile">
+              <img src="photo-red-bulls-mural.png" alt="New York Red Bulls mural beneath an elevated structure">
+            </figure>
+
+            <figure class="photo-tile photo-wide">
+              <img src="photo-ny-taxi-display.png" alt="New York taxi display against a brick building and American flag">
+            </figure>
           </div>
-        </div>
 
-        <div class="studio-links">
-          <a class="button" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
-            Photography Instagram ↗
-          </a>
-          <a class="button" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
-            Music Channel ↗
-          </a>
-          <a class="button" href="https://nickcornellstudio.blogspot.com/?m=1" target="_blank" rel="noopener">
-            Art Archive ↗
-          </a>
+          <div class="photo-footer">
+            <p>
+              I tend to photograph the places where cities, infrastructure, landscape and everyday life overlap.
+            </p>
+            <a class="button" href="https://www.instagram.com/ncornell_photography/" target="_blank" rel="noopener">
+              More Photography ↗
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -2840,7 +2920,7 @@ h1{
             <div class="resume-label">Creative + Service</div>
             <ul class="resume-bullets">
               <li><strong>Congressional Art Competition</strong><span>Regional Winner • NJ-8 • 2024</span></li>
-              <li><strong>Photography + Visual Art</strong><span>@n.cornell_photography</span></li>
+              <li><strong>Photography</strong><span>@ncornell_photography</span></li>
               <li><strong>Music Production</strong><span>Logic Pro, FL Studio, GarageBand</span></li>
               <li><strong>Mercy Street</strong><span>U12 Youth Soccer Coach • 2024</span></li>
               <li><strong>Superintendent's Youth Leadership Council</strong><span>Carroll ISD</span></li>
@@ -2858,7 +2938,7 @@ h1{
 
         <div class="contact-links">
           <a class="button" href="mailto:nckkcornell@gmail.com">Email ↗</a>
-          <a class="button" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">Photography ↗</a>
+          <a class="button" href="https://www.instagram.com/ncornell_photography/" target="_blank" rel="noopener">Photography ↗</a>
           <a class="button" href="https://instagram.com/lonestarmyco" target="_blank" rel="noopener">Lone Star Myco ↗</a>
           <a class="button" href="https://github.com/nicholascornell" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
