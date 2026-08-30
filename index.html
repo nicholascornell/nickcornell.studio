@@ -1663,6 +1663,227 @@
 .resume-heading h2{display:none!important}.resume-heading .resume-actions{margin-top:0!important}.resume-section{padding-top:38px!important}
 @media(max-width:800px){#portfolio .surge-shot{height:185px}#portfolio .demo-embed{max-width:225px}.hello-friend-teaser{min-height:135px}}
 </style>
+
+<style id="portfolio-v5-refinements">
+/* Grandma.care: video square on left, one full image on right */
+.grandma-media-row{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:10px;
+  padding:10px;
+  background:#f3f4f5;
+  border-bottom:1px solid var(--line);
+}
+.grandma-media-row .demo-embed{
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  background:#111318;
+  border-radius:12px;
+  overflow:hidden;
+}
+.grandma-media-row .embed-label{
+  padding:9px 10px 0;
+  margin-bottom:7px!important;
+}
+.grandma-media-row .video-frame{
+  aspect-ratio:1/1!important;
+  max-height:none!important;
+  border-radius:0 0 12px 12px!important;
+}
+.grandma-media-row .video-frame iframe{
+  width:178%!important;
+  height:100%!important;
+  margin-left:-39%!important;
+}
+.grandma-side-image{
+  position:relative;
+  min-height:245px;
+  overflow:hidden;
+  border-radius:12px;
+  background:#e9ecef;
+}
+.grandma-side-image img{
+  width:100%;
+  height:100%;
+  min-height:245px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.grandma-side-image .media-badge{
+  position:absolute;
+  z-index:2;
+  left:10px;
+  top:10px;
+}
+
+/* SurgeWatch: make the real screenshot a little larger */
+#portfolio .surge-shot{
+  height:245px!important;
+}
+#portfolio .surge-shot img{
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+
+/* HelloFriend: give it more visual weight */
+.hello-friend-teaser{
+  min-height:220px!important;
+  padding:22px!important;
+  margin-top:14px!important;
+}
+.hello-friend-mark{
+  font-size:clamp(34px,4vw,50px)!important;
+}
+.hello-friend-copy span{
+  font-size:14px!important;
+}
+
+/* Mushroom Automation: restore the photo collage as a strong visual */
+.myco-gallery{
+  grid-template-rows:230px 190px!important;
+}
+.myco-strip figure{
+  height:145px!important;
+}
+.myco-linkbar{
+  padding:11px 15px!important;
+  font-size:11px!important;
+}
+
+/* Art: artwork + Nick + description all on one horizontal line */
+.art-horizontal{
+  display:grid;
+  grid-template-columns:.9fr .72fr 1fr;
+  min-height:320px;
+  border:1px solid rgba(255,255,255,.18);
+  margin-bottom:12px;
+  background:#181b21;
+}
+.art-horizontal-image{
+  position:relative;
+  overflow:hidden;
+  min-height:320px;
+  border-right:1px solid rgba(255,255,255,.14);
+  background:#252932;
+}
+.art-horizontal-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.art-terminal img{
+  object-fit:contain;
+  padding:10px;
+}
+.art-nick img{
+  object-position:center;
+}
+.art-horizontal-image.missing::after{
+  content:"Image already in site repository";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:rgba(255,255,255,.45);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.art-horizontal-copy{
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.art-horizontal-copy .award{
+  color:var(--acid);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:10px;
+  font-weight:900;
+}
+.art-horizontal-copy h3{
+  font-size:clamp(26px,3vw,38px)!important;
+  margin:8px 0 10px!important;
+}
+.art-horizontal-copy p{
+  color:#c9ccd1;
+  font-size:12px!important;
+  line-height:1.5;
+}
+
+/* Resume: symmetrical, compact 2x2 bullet-point layout */
+.resume-section{
+  padding:42px 0!important;
+}
+.resume-topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:20px;
+}
+.resume-sym-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.resume-card{
+  border:1px solid var(--line);
+  background:#fff;
+  padding:18px;
+  min-height:260px;
+}
+.resume-card .resume-label{
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:9px;
+  margin-bottom:5px;
+}
+.resume-bullets{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.resume-bullets li{
+  padding:9px 0;
+  border-bottom:1px solid var(--line);
+}
+.resume-bullets li:last-child{
+  border-bottom:0;
+}
+.resume-bullets strong{
+  display:block;
+  font-size:13px;
+  line-height:1.25;
+}
+.resume-bullets span{
+  display:block;
+  margin-top:2px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.35;
+}
+
+@media(max-width:900px){
+  .grandma-media-row{grid-template-columns:1fr 1fr}
+  .art-horizontal{grid-template-columns:1fr 1fr}
+  .art-horizontal-copy{grid-column:1/-1}
+  .resume-sym-grid{grid-template-columns:1fr}
+  .resume-card{min-height:0}
+}
+@media(max-width:620px){
+  .grandma-media-row{grid-template-columns:1fr}
+  .grandma-side-image{min-height:220px}
+  .art-horizontal{grid-template-columns:1fr}
+  .art-horizontal-copy{grid-column:auto}
+}
+</style>
+
 </head>
 
 <body>
@@ -1732,24 +1953,30 @@
         <div class="project-grid">
 
           <article class="project">
-            <div class="grandma-mini-gallery">
-              <div class="project-media">
+            <div class="grandma-media-row">
+              <div class="demo-embed grandma-demo-compact">
+                <div class="embed-label">
+                  <span>Watch how Grandma.Care works</span>
+                  <span>2:20 Demo</span>
+                </div>
+                <div class="video-frame">
+                  <iframe
+                    src="https://www.youtube.com/embed/cDDkqpVq_Lk"
+                    title="Grandma.Care official demonstration"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="grandma-side-image">
                 <span class="media-badge">Actual Grandma.Care Project</span>
                 <img src="https://www.grandma.care/grandma-care-tablet.jpg"
                      alt="Grandma.Care senior tablet interface">
               </div>
-              <div class="project-media">
-                <img src="https://www.grandma.care/soncomputer.png"
-                     alt="Caregiver using a computer with an older adult">
-              </div>
             </div>
-
-            <div class="demo-embed">
-              <div class="embed-label">
-                <span>Watch how Grandma.Care works</span>
-                <span>2:20 Demo</span>
-              </div>
-              <div class="video-frame">
+<div class="video-frame">
                 <iframe
                   src="https://www.youtube.com/embed/cDDkqpVq_Lk"
                   title="Grandma.Care official demonstration"
@@ -1872,7 +2099,8 @@
           </div>
           <p>
             I’ve played competitive soccer for years, including varsity soccer at Southlake Carroll
-            and club soccer with the Dallas Texans. The game is a big part of who I am: it has taught
+            and club soccer with the Dallas Texans. Previously, I played with Sting, the New Jersey
+            Stallions, and the New York Red Bulls. The game is a big part of who I am: it has taught
             me how to communicate quickly, adapt when a plan changes, compete, and work toward something
             that only succeeds when the whole team does.
           </p>
@@ -1942,32 +2170,31 @@
           and the things that catch my attention.
         </p>
 
-        <article class="feature-art">
-          <div class="art-image">
-            <!-- Replace this file with the actual Congressional Art Competition image -->
+                <article class="art-horizontal">
+          <div class="art-horizontal-image art-terminal">
             <img src="lackawanna-terminal.jpg"
                  alt="Nick Cornell artwork of Lackawanna Terminal in Hoboken"
                  onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
           </div>
 
-          <div class="art-copy">
-            <div>
-              <div class="award">2024 Congressional Art Competition • Regional Winner</div>
-              <h3>Lackawanna Terminal, Reimagined</h3>
-            </div>
+          <div class="art-horizontal-image art-nick">
+            <img src="nick-artwork.png"
+                 alt="Nick Cornell standing beside his artwork"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+          </div>
 
-            <div>
-              <p>
-                A view of Hoboken's historic Lackawanna Terminal reinterpreted
-                through the visual language of an eighteenth-century Italian
-                engraving. The piece was selected in New Jersey's 8th
-                Congressional District and displayed at the U.S. Capitol.
-              </p>
-              <div class="tags">
-                <span class="tag">Digital Art</span>
-                <span class="tag">Architecture</span>
-                <span class="tag">Hoboken</span>
-              </div>
+          <div class="art-horizontal-copy">
+            <div class="award">2024 Congressional Art Competition • Regional Winner</div>
+            <h3>Lackawanna Terminal, Reimagined</h3>
+            <p>
+              Hoboken's historic Lackawanna Terminal reinterpreted through the visual language
+              of an eighteenth-century Italian engraving. Selected in New Jersey's 8th
+              Congressional District and displayed at the U.S. Capitol.
+            </p>
+            <div class="tags">
+              <span class="tag">Digital Art</span>
+              <span class="tag">Architecture</span>
+              <span class="tag">Hoboken</span>
             </div>
           </div>
         </article>
@@ -2002,15 +2229,7 @@
           </div>
 
         </div>
-
-        <div class="art-photo-block">
-          <img
-            src="nick-artwork.png"
-            alt="Nick Cornell standing beside a large black and white abstract artwork"
-          />
-        </div>
-
-        <div class="music-showcase">
+<div class="music-showcase">
           <div class="music-head">
             <div>
               <div class="section-kicker">Music</div>
@@ -2075,231 +2294,55 @@
         </div>
       </div>
     </section>
-<section id="built">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">04 / Things I've Built</div>
-          <h2>Software, systems, images + experiments.</h2>
-        </div>
-
-        <div class="build-list">
-          <div class="build-row">
-            <span class="num">01</span>
-            <strong>FutureLand.city</strong>
-            <span>Development Impact Visualizer</span>
-          </div>
-          <div class="build-row">
-            <span class="num">02</span>
-            <strong>Grandma.care</strong>
-            <span>Caregiving Platform</span>
-          </div>
-          <div class="build-row">
-            <span class="num">03</span>
-            <strong>SurgeWatch.live</strong>
-            <span>Flood Intelligence</span>
-          </div>
-          <div class="build-row">
-            <span class="num">04</span>
-            <strong>CornellBot.com</strong>
-            <span>AI Experiment</span>
-          </div>
-          <div class="build-row">
-            <span class="num">05</span>
-            <strong>Mushroom Automation</strong>
-            <span>Sensors + Biology</span>
-          </div>
-          <div class="build-row">
-            <span class="num">06</span>
-            <strong>Raspberry Pi Experiments</strong>
-            <span>Hardware + Coding</span>
-          </div>
-          <div class="build-row">
-            <span class="num">07</span>
-            <strong>Photography + Art</strong>
-            <span>Visual Work</span>
-          </div>
-          <div class="build-row">
-            <span class="num">08</span>
-            <strong>Music Production</strong>
-            <span>Logic / FL Studio / GarageBand</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="about" class="resume-section">
       <div class="wrap">
-        <div class="resume-heading">
-          <div class="section-kicker">05 / Resume</div>
-          <div>
-            <h2>Experience, leadership + education.</h2>
-            <div class="resume-actions" style="margin-top:14px;">
-              <a class="button" href="Nicholas_Cornell_Resume.pdf" target="_blank" rel="noopener">View Full Resume ↗</a>
-            </div>
-          </div>
+        <div class="resume-topline">
+          <div class="section-kicker">04 / Resume</div>
+          <a class="button" href="Nicholas_Cornell_Resume.pdf" target="_blank" rel="noopener">View Full Resume ↗</a>
         </div>
 
-        <div class="resume-grid">
+        <div class="resume-sym-grid">
 
-          <div class="resume-block">
+          <div class="resume-card">
             <div class="resume-label">Education</div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Carroll Senior High School — Southlake, Texas</strong>
-                <p>Advanced coursework includes AP Calculus AB, AP Physics 1, AP English IV, AP Business & Personal Finance, AP Statistics, AP English Language, AP Psychology, AP European History and AP Computer Science Principles.</p>
-              </div>
-              <div class="resume-date">2024–Present</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Saint Peter's Preparatory School — Jersey City, New Jersey</strong>
-              </div>
-              <div class="resume-date">2023–2024</div>
-            </div>
+            <ul class="resume-bullets">
+              <li><strong>Carroll Senior High School</strong><span>Southlake, TX • 2024–Present</span></li>
+              <li><strong>Saint Peter's Preparatory School</strong><span>Jersey City, NJ • 2023–2024</span></li>
+              <li><strong>Advanced coursework</strong><span>AP Calculus AB, AP Physics 1, AP English IV, AP Statistics, AP CSP + more</span></li>
+            </ul>
           </div>
 
-          <div class="resume-block">
+          <div class="resume-card">
             <div class="resume-label">Engineering + Technology</div>
-
-            <div class="resume-item">
-              <div>
-                <strong>City of Southlake Public Works — Engineering Intern</strong>
-                <p>Plan review, field inspections, drainage and flood mitigation, stormwater infrastructure, water systems and municipal projects; exposure to AutoCAD and civil engineering.</p>
-              </div>
-              <div class="resume-date">2026–Present</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>SurgeWatch — Founder & Developer</strong>
-                <p>Built an address-based flood-risk platform integrating FEMA, NOAA, USGS, weather, elevation, soil, river and mapping data.</p>
-              </div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Grandma.care / HelloFriend — Developer</strong>
-                <p>Developed a web platform supporting independent living for older adults through reminders, family communication, scheduling and assistance.</p>
-              </div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>CornellBot — Developer</strong>
-                <p>Built and self-hosted an AI web platform using Linux, APIs and web deployment technologies.</p>
-              </div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Mushroom Cultivation & Automation</strong>
-                <p>Independent cultivation and automation project using controlled growing environments and environmental monitoring.</p>
-              </div>
-            </div>
-
-            <div class="resume-tech">
-              <strong>Technical:</strong> AutoCAD (self-taught), JavaScript, HTML/CSS, GitHub, Supabase, Vercel, Linux, APIs, GIS/mapping tools
-            </div>
+            <ul class="resume-bullets">
+              <li><strong>City of Southlake Public Works</strong><span>Engineering Intern • 2026–Present</span></li>
+              <li><strong>SurgeWatch</strong><span>Founder & Developer • flood-risk platform</span></li>
+              <li><strong>Grandma.care / HelloFriend</strong><span>Caregiving web platform</span></li>
+              <li><strong>CornellBot</strong><span>AI web platform</span></li>
+              <li><strong>Technical</strong><span>AutoCAD, JavaScript, HTML/CSS, GitHub, Supabase, Vercel, Linux, APIs, GIS/mapping</span></li>
+            </ul>
           </div>
 
-          <div class="resume-block">
+          <div class="resume-card">
             <div class="resume-label">Leadership + Activities</div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Junior World Affairs Council — Founder & President</strong>
-                <p>Founded the Carroll Senior High School chapter affiliated with the World Affairs Council of Dallas/Fort Worth.</p>
-              </div>
-              <div class="resume-date">2026–Present</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Rotary International Youth Exchange — Brazil</strong>
-                <p>Selected for exchange in Paraná, Brazil; lived with a host family, learned basic Portuguese, and gained exposure to Brazilian culture, industry and engineering.</p>
-              </div>
-              <div class="resume-date">Summer 2026</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>American Legion Texas Boys State — State Delegate</strong>
-                <p>Selected for statewide civic leadership program and elected State Delegate.</p>
-              </div>
-              <div class="resume-date">2026</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Carroll Varsity Soccer + Dallas Texans Club Soccer</strong>
-                <p>Varsity player and competitive club player; All-District Honorable Mention.</p>
-              </div>
-              <div class="resume-date">2024–Present</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>SASO — Student Advisory Council</strong>
-                <p>Elected to student leadership council supporting community service initiatives.</p>
-              </div>
-              <div class="resume-date">2026–2027</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>TED-Ed Club — Director of AV</strong>
-                <p>Managed audiovisual production and presented a talk on sports as a universal language.</p>
-              </div>
-            </div>
+            <ul class="resume-bullets">
+              <li><strong>Junior World Affairs Council</strong><span>Founder & President • 2026–Present</span></li>
+              <li><strong>Texas Boys State</strong><span>State Delegate • 2026</span></li>
+              <li><strong>Rotary Youth Exchange — Brazil</strong><span>Summer 2026</span></li>
+              <li><strong>Carroll Varsity Soccer + Dallas Texans</strong><span>All-District Honorable Mention</span></li>
+              <li><strong>SASO Student Advisory Council</strong><span>2026–2027</span></li>
+            </ul>
           </div>
 
-          <div class="resume-block">
-            <div class="resume-label">Photography, Art + Music</div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Photography & Visual Art — @n.cornell_photography</strong>
-                <p>Independent photographer and artist focused on architecture, cities, landscapes and the built environment.</p>
-              </div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Congressional Art Competition — Regional Winner</strong>
-                <p>Won in New Jersey's 8th Congressional District for an original work depicting Hoboken's historic Lackawanna Terminal.</p>
-              </div>
-              <div class="resume-date">2024</div>
-            </div>
-
-            <div class="resume-item">
-              <div>
-                <strong>Music Production</strong>
-                <p>Produces original digital music using FL Studio, GarageBand and Logic Pro; publishes original work and music videos on YouTube.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="resume-block wide">
-            <div class="resume-label">Additional Leadership + Service</div>
-
-            <div class="resume-grid" style="gap:0 34px;">
-              <div class="resume-item">
-                <div>
-                  <strong>Mercy Street — Youth Soccer Coach</strong>
-                  <p>Assistant coach for U12 youth soccer.</p>
-                </div>
-                <div class="resume-date">2024</div>
-              </div>
-
-              <div class="resume-item">
-                <div>
-                  <strong>Superintendent's Youth Leadership Council — Carroll ISD</strong>
-                  <p>Selected for district-level student leadership and student representation.</p>
-                </div>
-              </div>
-            </div>
+          <div class="resume-card">
+            <div class="resume-label">Creative + Service</div>
+            <ul class="resume-bullets">
+              <li><strong>Congressional Art Competition</strong><span>Regional Winner • NJ-8 • 2024</span></li>
+              <li><strong>Photography + Visual Art</strong><span>@n.cornell_photography</span></li>
+              <li><strong>Music Production</strong><span>Logic Pro, FL Studio, GarageBand</span></li>
+              <li><strong>Mercy Street</strong><span>U12 Youth Soccer Coach • 2024</span></li>
+              <li><strong>Superintendent's Youth Leadership Council</strong><span>Carroll ISD</span></li>
+            </ul>
           </div>
 
         </div>
