@@ -419,6 +419,86 @@
     }
 
 
+
+    /* ---------- FIXED MUSHROOM GALLERY ---------- */
+    .myco-gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      grid-template-rows: 245px 210px;
+      gap: 2px;
+      background: var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .myco-gallery figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    .myco-gallery figure:first-child {
+      grid-row: 1 / 3;
+    }
+    .myco-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+    .myco-gallery figure:hover img { transform: scale(1.025); }
+    .myco-gallery figcaption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(17,19,24,.82);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(7px);
+    }
+    .myco-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .myco-strip figure {
+      margin: 0;
+      height: 150px;
+      overflow: hidden;
+      background: #111;
+    }
+    .myco-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .myco-linkbar {
+      padding: 11px 16px;
+      background: #111318;
+      color: #dce3e6;
+      font-size: 12px;
+    }
+    .myco-linkbar a {
+      color: var(--acid);
+      text-decoration: none;
+      font-weight: 900;
+    }
+    @media (max-width: 700px) {
+      .myco-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 220px 220px;
+      }
+      .myco-gallery figure:first-child { grid-row: auto; }
+      .myco-strip { grid-template-columns: 1fr 1fr; }
+    }
+
     /* ---------- CURRENT PROJECT ---------- */
 
     .current-project {
@@ -503,13 +583,13 @@
     .project-body {
       padding: 24px 26px 26px;
       display: flex;
-      min-height: 265px;
+      min-height: 0;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .project-preview {
-      height: 205px;
+      height: 220px;
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid var(--line);
@@ -1318,17 +1398,36 @@
           </article>
 
           <article class="project">
-            <div class="instagram-embed-wrap">
-              <iframe
-                src="https://www.instagram.com/lonestarmyco/embed/"
-                title="Lone Star Myco Instagram photo preview"
-                loading="lazy"
-                scrolling="no">
-              </iframe>
+            <div class="myco-gallery">
+              <figure>
+                <img src="nick-lions-mane-harvest.png"
+                     alt="Nick holding harvested lion's mane mushroom grow bags">
+                <figcaption>Lion's Mane Harvest</figcaption>
+              </figure>
+              <figure>
+                <img src="nick-mushroom-grow-tent.png"
+                     alt="Nick's indoor mushroom cultivation grow tent and jars">
+                <figcaption>Growing System</figcaption>
+              </figure>
+              <figure>
+                <img src="nick-oyster-mushroom-grow.png"
+                     alt="Nick holding an oyster mushroom grow block">
+                <figcaption>Oyster Grow</figcaption>
+              </figure>
             </div>
-            <div class="instagram-fallback">
-              Live photos from <a href="https://instagram.com/lonestarmyco" target="_blank" rel="noopener">@lonestarmyco ↗</a>
-              — if Instagram blocks the preview, the profile link still opens the project gallery.
+            <div class="myco-strip">
+              <figure>
+                <img src="nick-tiny-mushroom-terrarium.png"
+                     alt="Tiny mushroom growing in a terrarium ecosystem">
+              </figure>
+              <figure>
+                <img src="nick-wild-mushroom-field.png"
+                     alt="Wild mushroom photographed outdoors">
+              </figure>
+            </div>
+            <div class="myco-linkbar">
+              More mushroom experiments and finds at
+              <a href="https://instagram.com/lonestarmyco" target="_blank" rel="noopener">@lonestarmyco ↗</a>
             </div>
             <div class="project-body">
               <div>
