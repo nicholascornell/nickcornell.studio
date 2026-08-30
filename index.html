@@ -2110,6 +2110,211 @@ h1{
 }
 </style>
 
+
+<style id="v8-visual-refinements">
+/* HERO: heavier display treatment, but with enough tracking that CORNELL stays legible */
+.hero h1, h1{
+  font-family: Arial Black, Arial, Helvetica, sans-serif !important;
+  font-weight: 900 !important;
+  font-stretch: expanded !important;
+  font-size: clamp(62px, 8.6vw, 124px) !important;
+  line-height: .86 !important;
+  letter-spacing: .018em !important;
+  font-kerning: none !important;
+}
+.cornell-wordmark{
+  font-family: Arial Black, Arial, Helvetica, sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: .055em !important;
+  font-kerning: none !important;
+}
+
+/* HELLOFRIEND.KR — typographic logo, no external image dependency */
+.hello-kr-logo{
+  min-height: 205px;
+  position: relative;
+  display: grid !important;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: center !important;
+  justify-content: stretch !important;
+  gap: 12px 16px;
+  padding: 26px !important;
+  background: #f6fbff !important;
+}
+.hello-kr-symbol{
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--acid);
+  color: #111;
+  font: 900 27px/1 Arial Black, Arial, sans-serif;
+  letter-spacing: -.06em;
+}
+.hello-kr-type{
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  letter-spacing: -.045em;
+}
+.hello-kr-type span{
+  font: 900 clamp(29px, 3.1vw, 45px)/1 Arial Black, Arial, sans-serif;
+  color: #111318;
+}
+.hello-kr-type strong{
+  font: 900 clamp(18px, 2vw, 27px)/1 Arial Black, Arial, sans-serif;
+  color: #5662e8;
+  letter-spacing: -.02em;
+}
+.hello-kr-tag{
+  grid-column: 1 / -1;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #6c7377;
+}
+
+/* Shared browser frame for actual/mocked website screenshots */
+.browser-shot{
+  margin: 0 18px;
+  border: 1px solid #cfd4d7;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(20,24,30,.08);
+}
+.browser-bar{
+  height: 28px;
+  background: #edf0f2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border-bottom: 1px solid #d6dade;
+}
+.browser-bar > span{
+  width: 7px; height: 7px; border-radius: 50%; background: #aeb5ba;
+}
+.browser-url{
+  margin-left: 7px;
+  height: 16px;
+  min-width: 145px;
+  padding: 2px 9px;
+  border-radius: 5px;
+  background: #fff;
+  color: #6d7478;
+  font-size: 8px;
+  line-height: 12px;
+}
+.surge-browser .surge-real-shot{
+  margin: 0 !important;
+  border-radius: 0 !important;
+  height: 265px !important;
+}
+.surge-browser .surge-real-shot img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center top !important;
+  background: #081018;
+}
+
+/* CornellBot screenshot-like interface */
+.bot-browser{height: 294px;}
+.cornellbot-ui{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 265px;
+  background: #f7f8fa;
+  color: #17191d;
+}
+.bot-sidebar{
+  background: #111318;
+  color: #fff;
+  padding: 14px 11px;
+}
+.bot-brand{
+  font: 900 13px/1 Arial Black, Arial, sans-serif;
+  margin-bottom: 16px;
+  letter-spacing: -.03em;
+}
+.bot-brand span{color: var(--acid)}
+.bot-sidebar button{
+  width: 100%;
+  border: 1px solid #444950;
+  background: transparent;
+  color: #fff;
+  border-radius: 7px;
+  padding: 7px;
+  text-align: left;
+  font-size: 8px;
+  margin-bottom: 14px;
+}
+.bot-history{
+  color: #aeb4ba;
+  font-size: 7px;
+  padding: 6px 2px;
+  border-bottom: 1px solid #24282e;
+}
+.bot-main{
+  padding: 22px 20px 14px;
+  position: relative;
+}
+.bot-screen-title{
+  font: 900 20px/1 Arial Black, Arial, sans-serif;
+  margin-bottom: 18px;
+}
+.bot-message{
+  max-width: 88%;
+  border-radius: 9px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 8px;
+  line-height: 1.45;
+}
+.user-msg{
+  margin-left: auto;
+  background: #e7e9ec;
+}
+.ai-msg{
+  background: #fff;
+  border: 1px solid #e1e4e7;
+}
+.bot-compose{
+  position: absolute;
+  left: 20px; right: 20px; bottom: 14px;
+  height: 34px;
+  border: 1px solid #d6dade;
+  border-radius: 9px;
+  background: #fff;
+  color: #92989c;
+  padding: 9px 10px;
+  font-size: 8px;
+}
+.bot-compose span{
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 17px; height: 17px;
+  margin-top: -1px;
+  border-radius: 5px;
+  background: #111318;
+  color: #fff;
+}
+
+@media(max-width:620px){
+  .hero h1,h1{font-size:clamp(52px,15vw,82px)!important;letter-spacing:.012em!important}
+  .cornell-wordmark{letter-spacing:.04em!important}
+  .hello-kr-logo{grid-template-columns:1fr;text-align:center}
+  .hello-kr-symbol{margin:auto}
+  .hello-kr-type{justify-content:center}
+  .hello-kr-tag{grid-column:auto}
+}
+</style>
+
 </head>
 
 <body>
@@ -2227,9 +2432,11 @@ h1{
 
           <!-- HELLO FRIEND -->
           <article class="tech-card hello-card">
-            <div class="hello-logo-wrap">
-              <img src="hellofriend-logo.png" alt="HelloFriend.care logo">
-            </div>
+            <div class="hello-logo-wrap hello-kr-logo" aria-label="HelloFriend.KR">
+      <div class="hello-kr-symbol">HF</div>
+      <div class="hello-kr-type"><span>HelloFriend</span><strong>.KR</strong></div>
+      <div class="hello-kr-tag">A simpler way to stay connected.</div>
+    </div>
             <div class="tech-card-head hello-head">
               <div>
                 <div class="project-num">In Progress</div>
@@ -2259,9 +2466,10 @@ h1{
                 <h3><a href="https://surgewatch.live" target="_blank" rel="noopener">SurgeWatch.live ↗</a></h3>
               </div>
             </div>
-            <div class="surge-real-shot">
-              <img src="surgewatch-screenshot.png" alt="SurgeWatch live flood-risk dashboard">
-            </div>
+            <div class="browser-shot surge-browser">
+      <div class="browser-bar"><span></span><span></span><span></span><div class="browser-url">surgewatch.live</div></div>
+      <div class="surge-real-shot"><img src="surgewatch-screenshot.png" alt="SurgeWatch live flood-risk dashboard"></div>
+    </div>
             <div class="tech-copy">
               <p>
                 An address-based flood-risk project inspired by growing up in flood-prone Hoboken.
@@ -2282,11 +2490,26 @@ h1{
                 <h3><a href="https://cornellbot.com" target="_blank" rel="noopener">CornellBot.com ↗</a></h3>
               </div>
             </div>
-            <div class="bot-preview compact-bot" aria-hidden="true">
-              <div class="bubble">How does momentum change in a collision?</div>
-              <div class="bubble you">Can you explain it without giving away the answer?</div>
-              <div class="bubble">Start by comparing the system before and after impact…</div>
-              <div class="bot-input"></div>
+            <div class="browser-shot bot-browser" aria-label="CornellBot interface preview">
+              <div class="browser-bar">
+                <span></span><span></span><span></span>
+                <div class="browser-url">cornellbot.com</div>
+              </div>
+              <div class="cornellbot-ui">
+                <aside class="bot-sidebar">
+                  <div class="bot-brand">CORNELL<span>BOT</span></div>
+                  <button>+ New chat</button>
+                  <div class="bot-history">Physics homework</div>
+                  <div class="bot-history">Flood resilience</div>
+                  <div class="bot-history">Study notes</div>
+                </aside>
+                <div class="bot-main">
+                  <div class="bot-screen-title">How can I help?</div>
+                  <div class="bot-message user-msg">Can you explain momentum without giving me the answer?</div>
+                  <div class="bot-message ai-msg"><b>CornellBot</b><br>Start by comparing the total momentum of the system before and after the collision. What quantities do you already know?</div>
+                  <div class="bot-compose">Message CornellBot… <span>↑</span></div>
+                </div>
+              </div>
             </div>
             <div class="tech-copy">
               <p>
