@@ -2315,6 +2315,21 @@ h1{
 }
 </style>
 
+
+<style id="v9-requested-adjustments">
+/* Grandma.care: remove side whitespace from the illustration and give demo more room */
+.grandma-feature{grid-template-columns:1.08fr .92fr!important;gap:12px!important;align-items:stretch!important}
+.grandma-one-image{height:230px!important;background:#eef3f7!important}
+.grandma-one-image img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:left center!important}
+.grandma-demo-small{max-width:none!important;height:230px!important;justify-self:stretch!important}
+.grandma-demo-small .video-frame{height:202px!important;aspect-ratio:auto!important}
+.grandma-demo-small iframe{width:160%!important;height:100%!important;margin-left:-30%!important}
+/* Use the actual supplied HelloFriend.care logo */
+.hello-correct-logo{height:190px!important;padding:0!important;background:#f7fbff!important}
+.hello-correct-logo img{width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+@media(max-width:620px){.grandma-feature{grid-template-columns:1fr!important}.grandma-demo-small{height:210px!important}.grandma-demo-small .video-frame{height:182px!important}}
+</style>
+
 </head>
 
 <body>
@@ -2432,11 +2447,9 @@ h1{
 
           <!-- HELLO FRIEND -->
           <article class="tech-card hello-card">
-            <div class="hello-logo-wrap hello-kr-logo" aria-label="HelloFriend.KR">
-      <div class="hello-kr-symbol">HF</div>
-      <div class="hello-kr-type"><span>HelloFriend</span><strong>.KR</strong></div>
-      <div class="hello-kr-tag">A simpler way to stay connected.</div>
-    </div>
+            <div class="hello-logo-wrap hello-correct-logo">
+              <img src="hellofriend-care-logo.png" alt="HelloFriend.care — Independent living helped by a friend.">
+            </div>
             <div class="tech-card-head hello-head">
               <div>
                 <div class="project-num">In Progress</div>
@@ -2486,7 +2499,7 @@ h1{
           <article class="tech-card half-card bot-card">
             <div class="tech-card-head">
               <div>
-                <div class="project-num">AI Experiment</div>
+                <div class="project-num">Physics AI Tutor</div>
                 <h3><a href="https://cornellbot.com" target="_blank" rel="noopener">CornellBot.com ↗</a></h3>
               </div>
             </div>
@@ -2513,11 +2526,10 @@ h1{
             </div>
             <div class="tech-copy">
               <p>
-                An AI assistant experiment for exploring large language models, prompt design,
-                interfaces and practical ways people can work with AI.
+                A physics AI tutor built to help students work through problems step by step. Rather than simply giving an answer, CornellBot uses guided questions and explanations to help students understand the underlying physics.
               </p>
               <div class="tags">
-                <span class="tag">AI</span><span class="tag">Software</span><span class="tag">Experiment</span>
+                <span class="tag">Physics</span><span class="tag">AI Tutor</span><span class="tag">Education</span>
               </div>
             </div>
           </article>
@@ -2783,7 +2795,7 @@ h1{
               <li><strong>City of Southlake Public Works</strong><span>Engineering Intern • 2026–Present</span></li>
               <li><strong>SurgeWatch</strong><span>Founder & Developer • flood-risk platform</span></li>
               <li><strong>Grandma.care / HelloFriend</strong><span>Caregiving web platform</span></li>
-              <li><strong>CornellBot</strong><span>AI web platform</span></li>
+              <li><strong>CornellBot</strong><span>Physics AI tutor</span></li>
               <li><strong>Technical</strong><span>AutoCAD, JavaScript, HTML/CSS, GitHub, Supabase, Vercel, Linux, APIs, GIS/mapping</span></li>
             </ul>
           </div>
