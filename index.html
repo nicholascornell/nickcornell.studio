@@ -1216,60 +1216,866 @@
       .footer-inner { flex-direction: column; }
     }
   </style>
-<style id="compact-v2">
-html{scroll-behavior:smooth}body{font-size:14px}section{padding-top:42px!important;padding-bottom:42px!important}
-h1{font-size:clamp(46px,6.5vw,82px)!important}h2{font-size:clamp(30px,4vw,50px)!important;line-height:1!important}h3{font-size:21px!important}p{line-height:1.46}
-.strip-link{color:inherit;text-decoration:none}.strip-link:hover{text-decoration:underline;text-underline-offset:4px}
-#portfolio{padding-top:38px!important;padding-bottom:38px!important}#portfolio .project-grid,#portfolio .projects-grid{gap:10px!important}
-#portfolio .project{min-height:0!important}#portfolio .project-body{padding:16px 18px 18px!important;min-height:0!important}
-#portfolio .project-body p{font-size:13px!important;margin:7px 0!important}#portfolio .project-preview{height:145px!important;min-height:0!important}
-#portfolio .project-media img{height:155px!important}#portfolio .grandma-mini-gallery img{height:135px!important}#portfolio .demo-embed{padding:8px!important}
-#portfolio .demo-embed .embed-label{margin-bottom:6px!important}#portfolio .video-frame{max-height:205px!important;overflow:hidden}
-#portfolio .myco-gallery{grid-template-rows:150px 125px!important}#portfolio .myco-strip figure{height:90px!important}
-.current-project,.current-project-section{padding-top:34px!important;padding-bottom:38px!important}.current-project img,.current-project-section img{max-height:390px!important;object-fit:cover}
-.soccer-section{padding:40px 0!important}.soccer-intro{gap:22px!important;margin-bottom:16px!important}.soccer-intro h2{font-size:clamp(32px,4vw,52px)!important}
-.soccer-intro p{font-size:14px!important}.soccer-gallery{grid-template-rows:165px 165px!important;gap:7px!important}.soccer-details{gap:8px!important;margin-top:8px!important}
-.soccer-card{padding:15px!important}.soccer-card h3{font-size:20px!important}
-#studio,.studio-section{padding-top:40px!important;padding-bottom:40px!important}#studio img,.studio-section img{max-height:310px!important;object-fit:cover}
-#studio iframe[src*="youtube"],.studio-section iframe[src*="youtube"],#studio .music iframe,.studio-section .music iframe{width:100%!important;min-height:330px!important;aspect-ratio:16/9!important}
-#about,#contact{padding-top:36px!important;padding-bottom:36px!important}
-@media(max-width:800px){section{padding-top:30px!important;padding-bottom:30px!important}.soccer-gallery{grid-template-rows:230px 160px 160px!important}
-#studio iframe[src*="youtube"],.studio-section iframe[src*="youtube"],#studio .music iframe,.studio-section .music iframe{min-height:225px!important}}
+
+<style id="nick-compact-corrections">
+  /* Faster-scanning admissions portfolio */
+  header {
+    min-height: 42vh !important;
+  }
+  .hero-grid {
+    padding: 26px 0 30px !important;
+    gap: 42px !important;
+  }
+  h1 {
+    font-size: clamp(54px, 8vw, 112px) !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-copy {
+    font-size: clamp(16px, 1.55vw, 20px) !important;
+    max-width: 650px !important;
+  }
+  .hero-stat {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding-top: 10px !important;
+  }
+  .hero-stat strong {
+    font-size: 28px !important;
+  }
+  .hero-stat span {
+    font-size: 11px !important;
+  }
+  .hero-stat:hover {
+    opacity: .58;
+  }
+
+  section {
+    padding: 46px 0 !important;
+  }
+  .section-head {
+    margin-bottom: 24px !important;
+    gap: 30px !important;
+  }
+  .portfolio-head {
+    display: block !important;
+  }
+  h2 {
+    font-size: clamp(34px, 4.6vw, 58px) !important;
+  }
+  h3 {
+    font-size: 23px !important;
+  }
+
+  /* FUTURELAND — still the featured project, just tighter */
+  .current-project {
+    padding: 42px 0 46px !important;
+  }
+  .current-grid {
+    gap: 26px !important;
+  }
+  .current-copy h2 {
+    font-size: clamp(42px, 5.5vw, 68px) !important;
+    margin-bottom: 12px !important;
+  }
+  .current-copy p {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+  }
+  .current-copy .status-pill {
+    margin-bottom: 11px !important;
+  }
+  .current-preview,
+  .current-preview img {
+    min-height: 285px !important;
+    max-height: 330px !important;
+  }
+
+  /* PORTFOLIO — compact, visual, no giant empty cards */
+  #portfolio {
+    padding: 42px 0 !important;
+  }
+  .project-grid {
+    gap: 12px !important;
+    align-items: start !important;
+  }
+  .project {
+    align-self: start !important;
+    min-height: 0 !important;
+  }
+  .project-body {
+    padding: 16px 18px 18px !important;
+    min-height: 0 !important;
+  }
+  .project p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin: 8px 0 0 !important;
+  }
+  .project-num {
+    font-size: 10px !important;
+  }
+  .tags {
+    margin-top: 14px !important;
+  }
+  .tag {
+    font-size: 9px !important;
+    padding: 5px 8px 4px !important;
+  }
+
+  /* Grandma.care stays visual and keeps the embedded demo */
+  .grandma-mini-gallery img {
+    height: 135px !important;
+  }
+  .demo-embed {
+    padding: 8px !important;
+  }
+  .demo-embed .embed-label {
+    margin-bottom: 6px !important;
+    font-size: 9px !important;
+  }
+  .demo-embed .video-frame {
+    max-height: 185px !important;
+  }
+
+  /* Explicitly shrink SurgeWatch + CornellBot */
+  .project-preview {
+    height: 145px !important;
+    min-height: 145px !important;
+  }
+  .risk-card {
+    transform: scale(.82);
+    transform-origin: right bottom;
+  }
+  .bot-preview {
+    padding: 18px !important;
+  }
+  .bubble {
+    padding: 7px 9px !important;
+    font-size: 9px !important;
+    margin-bottom: 6px !important;
+  }
+  .bot-input {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 12px !important;
+    height: 24px !important;
+  }
+
+  /* Mushrooms: keep the section, but make it less tall */
+  .myco-gallery {
+    grid-template-rows: 155px 125px !important;
+  }
+  .myco-strip figure {
+    height: 90px !important;
+  }
+  .myco-linkbar {
+    padding: 8px 12px !important;
+    font-size: 10px !important;
+  }
+
+  /* Soccer: keep all the photos/info, just make it faster to scan */
+  .soccer-section {
+    padding: 42px 0 !important;
+  }
+  .soccer-intro {
+    gap: 24px !important;
+    margin-bottom: 18px !important;
+  }
+  .soccer-intro h2 {
+    font-size: clamp(34px, 4.5vw, 56px) !important;
+  }
+  .soccer-intro p {
+    font-size: 14px !important;
+  }
+  .soccer-gallery {
+    grid-template-rows: 175px 175px !important;
+    gap: 8px !important;
+  }
+  .soccer-details {
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+  .soccer-card {
+    padding: 15px !important;
+  }
+  .soccer-card h3 {
+    font-size: 20px !important;
+  }
+  .soccer-card p,
+  .soccer-note {
+    font-size: 12px !important;
+  }
+
+  /* Photography + Music + Art: smaller overall */
+  .studio {
+    padding: 44px 0 !important;
+  }
+  .studio-intro {
+    font-size: 16px !important;
+    margin-bottom: 26px !important;
+  }
+  .feature-art {
+    min-height: 350px !important;
+    margin-bottom: 12px !important;
+  }
+  .art-copy {
+    padding: 26px !important;
+  }
+  .art-copy h3 {
+    font-size: clamp(28px, 3vw, 42px) !important;
+  }
+  .art-copy p {
+    font-size: 13px !important;
+  }
+  .creative-showcase {
+    gap: 10px !important;
+    margin-top: 12px !important;
+  }
+  .creative-panel {
+    min-height: 165px !important;
+    padding: 18px !important;
+  }
+  .creative-panel h3 {
+    margin: 20px 0 8px !important;
+    font-size: 25px !important;
+  }
+  .creative-panel p {
+    font-size: 12px !important;
+  }
+  .art-photo-block {
+    margin-top: 12px !important;
+  }
+  .art-photo-block img {
+    max-height: 430px !important;
+  }
+
+  /* Music videos: larger, but kept in a single horizontal row to avoid adding scroll */
+  .music-showcase {
+    padding: 22px !important;
+    margin-top: 12px !important;
+  }
+  .music-head {
+    margin-bottom: 16px !important;
+  }
+  .music-head h3 {
+    font-size: clamp(26px, 3vw, 38px) !important;
+  }
+  .video-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+  }
+  .video-card {
+    flex: 0 0 min(520px, 72vw) !important;
+    aspect-ratio: 16 / 9 !important;
+    scroll-snap-align: start;
+  }
+
+  /* Things I've Built / About / Contact */
+  .build-row {
+    padding: 14px 0 !important;
+  }
+  .build-row strong {
+    font-size: clamp(18px, 2.2vw, 26px) !important;
+  }
+  .about-grid {
+    gap: 36px !important;
+  }
+  .lede {
+    font-size: 16px !important;
+  }
+  .fact {
+    padding: 12px 0 !important;
+  }
+
+  @media (max-width: 900px) {
+    header {
+      min-height: auto !important;
+    }
+    .hero-grid {
+      padding: 42px 0 30px !important;
+    }
+    .current-preview,
+    .current-preview img {
+      min-height: 245px !important;
+    }
+    .soccer-gallery {
+      grid-template-rows: 245px 170px 170px !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    section {
+      padding: 34px 0 !important;
+    }
+    .video-card {
+      flex-basis: 86vw !important;
+    }
+  }
+</style>
+
+
+<style id="resume-section-style">
+  .resume-section {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 44px 0 !important;
+  }
+
+  .resume-heading {
+    display: grid;
+    grid-template-columns: .42fr 1.58fr;
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 26px;
+  }
+
+  .resume-heading h2 {
+    margin: 0;
+    font-size: clamp(34px, 4.5vw, 58px) !important;
+    line-height: .95 !important;
+  }
+
+  .resume-heading .resume-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 34px;
+  }
+
+  .resume-block {
+    border-top: 1px solid var(--ink);
+    padding-top: 12px;
+  }
+
+  .resume-block.wide {
+    grid-column: 1 / -1;
+  }
+
+  .resume-label {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .11em;
+    margin-bottom: 10px;
+    color: var(--muted);
+  }
+
+  .resume-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .resume-item:last-child {
+    border-bottom: 0;
+  }
+
+  .resume-item strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .resume-item p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 680px;
+  }
+
+  .resume-date {
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+
+  .resume-tech {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .resume-tech strong {
+    color: var(--ink);
+  }
+
+  .resume-section .button {
+    padding: 9px 12px !important;
+    font-size: 10px !important;
+  }
+
+  @media (max-width: 850px) {
+    .resume-heading,
+    .resume-grid {
+      grid-template-columns: 1fr;
+    }
+    .resume-heading .resume-actions {
+      justify-content: flex-start;
+    }
+    .resume-block.wide {
+      grid-column: auto;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .resume-item {
+      grid-template-columns: 1fr;
+    }
+    .resume-date {
+      padding-top: 0;
+    }
+  }
+</style>
+
+<style id="layout-refinement-v3">
+.cornell-wordmark{letter-spacing:.035em;font-kerning:none;font-feature-settings:"kern" 0}
+#portfolio .project-grid{align-items:stretch!important}
+#portfolio .project{height:100%!important}
+#portfolio .surge-shot{height:215px;overflow:hidden;background:#081018}
+#portfolio .surge-shot img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+#portfolio .demo-embed{max-width:260px;margin:10px auto 0}
+#portfolio .demo-embed .video-frame{width:100%;aspect-ratio:1/1;max-height:260px!important;overflow:hidden;border-radius:12px}
+#portfolio .demo-embed .video-frame iframe{width:178%;height:100%;margin-left:-39%}
+.hello-friend-teaser{min-height:170px;margin-top:12px;padding:18px;background:#d8ff36;color:#111;display:flex;flex-direction:column;justify-content:space-between;border-top:1px solid #111}
+.hello-friend-mark{font-size:clamp(26px,3vw,38px);line-height:.95;font-weight:900;letter-spacing:-.035em}
+.hello-friend-copy{display:flex;flex-direction:column;gap:3px}
+.hello-friend-copy strong{text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+.hello-friend-copy span{font-size:12px;font-weight:700}
+.resume-heading{display:flex!important;justify-content:space-between;align-items:center!important;gap:20px!important}
+.resume-heading h2{display:none!important}.resume-heading .resume-actions{margin-top:0!important}.resume-section{padding-top:38px!important}
+@media(max-width:800px){#portfolio .surge-shot{height:185px}#portfolio .demo-embed{max-width:225px}.hello-friend-teaser{min-height:135px}}
 </style>
 </head>
 
 <body>
-
-  <div class="topbar">
-    <nav class="wrap">
-      <a class="brand" href="#">NC / 26</a>
-      <div class="nav-links">
-        <a href="#current-project">Current Project</a>
-        <a href="#projects">Projects</a>
-        <a href="#studio">Photography + Music + Art</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#built">Things I've Built</a>
-        <a href="#about">About</a>
-        <a href="#soccer">Soccer</a>
-        <a href="#contact">Contact</a>
+<header>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Civil Engineering + Technology + Creative Work</div>
+        <h1>Nick<br>Cornell</h1>
+        <p class="hero-copy">I build tools that turn real-world problems into things you can see, test and improve.</p>
       </div>
-    </nav>
-  </div>
 
-  
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner">
-      FUTURELAND • CIVIL ENGINEERING • INFRASTRUCTURE • FLOOD RESILIENCE • AI • PHOTOGRAPHY • ART • MUSIC • SOCCER •
-      FUTURELAND • CIVIL ENGINEERING • INFRASTRUCTURE • FLOOD RESILIENCE • AI • PHOTOGRAPHY • ART • MUSIC • SOCCER •
+      <div class="hero-side">
+        <a class="hero-stat" href="#current-project">
+          <strong>01</strong>
+          <span>Infrastructure</span>
+        </a>
+        <a class="hero-stat" href="#portfolio">
+          <strong>02</strong>
+          <span>AI + Technology</span>
+        </a>
+        <a class="hero-stat" href="#studio">
+          <strong>03</strong>
+          <span>Design + Art</span>
+        </a>
+      </div>
     </div>
-  </div>
+  </header>
+<main>
 
-  <main>
+    <section id="current-project" class="current-project">
+      <div class="wrap current-grid">
+        <div class="current-copy">
+          <div class="section-kicker">New / Current Project</div>
+          <div class="status-pill">In Development • 2026</div>
+          <h2>FutureLand</h2>
+          <p>
+            I’m building an interactive development-impact visualizer around one question:
+            <strong>what happens if we build here?</strong> FutureLand is designed to model proposed
+            residential, commercial and mixed-use development and show how it could change water demand,
+            roads, schools, infrastructure, housing, communities, wildlife and natural resources.
+          </p>
+          <p>
+            The goal is not to produce a single score. It is to make tradeoffs visible — helping people
+            see where development may make sense, where infrastructure would need to grow, and where
+            water, environmental or community constraints create real red flags.
+          </p>
+          <div class="tags">
+            <span class="tag">Civil Engineering</span>
+            <span class="tag">AI</span>
+            <span class="tag">GIS + Mapping</span>
+            <span class="tag">Water</span>
+            <span class="tag">Infrastructure</span>
+          </div>
+          <a class="button" href="https://futureland.city" target="_blank" rel="noopener">Visit FutureLand.city ↗</a>
+        </div>
 
-    
+        <a class="current-preview" href="https://futureland.city" target="_blank" rel="noopener" aria-label="Preview FutureLand">
+          <img src="futureland-preview.png" alt="FutureLand development impact visualizer preview">
+        </a>
+      </div>
+    </section>
 
-    <section id="built">
+    <section id="portfolio">
+      <div class="wrap">
+        <div class="section-head portfolio-head"><h2>01 Portfolio</h2></div>
+
+        <div class="project-grid">
+
+          <article class="project">
+            <div class="grandma-mini-gallery">
+              <div class="project-media">
+                <span class="media-badge">Actual Grandma.Care Project</span>
+                <img src="https://www.grandma.care/grandma-care-tablet.jpg"
+                     alt="Grandma.Care senior tablet interface">
+              </div>
+              <div class="project-media">
+                <img src="https://www.grandma.care/soncomputer.png"
+                     alt="Caregiver using a computer with an older adult">
+              </div>
+            </div>
+
+            <div class="demo-embed">
+              <div class="embed-label">
+                <span>Watch how Grandma.Care works</span>
+                <span>2:20 Demo</span>
+              </div>
+              <div class="video-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/cDDkqpVq_Lk"
+                  title="Grandma.Care official demonstration"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div>
+                <div class="project-num">Project 01</div>
+                <h3><a href="https://grandma.care" target="_blank" rel="noopener">Grandma.care ↗</a></h3>
+                <p style="margin:8px 0 0;font-size:14px;color:#6f746f;font-weight:700;">Also developed as HelloFriend.care</p>
+                <p>
+                  A caregiving platform designed to help older adults live more independently
+                  through reminders, a caregiver dashboard, family notes, simple tablet prompts
+                  and missed-reminder alerts.
+                </p>
+              </div>
+              <div class="tags">
+                <span class="tag">Health Tech</span>
+                <span class="tag">Web App</span>
+                <span class="tag">AI-Assisted Coding</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="surge-shot"><img src="surgewatch-screenshot.png" alt="SurgeWatch flood-risk dashboard"></div><div class="project-body">
+              <div>
+                <div class="project-num">Project 02</div>
+                <h3><a href="https://surgewatch.live" target="_blank" rel="noopener">SurgeWatch.live ↗</a></h3>
+                <p>An address-based flood-risk project inspired by growing up in flood-prone Hoboken. It combines environmental and infrastructure information to make flood risk easier to understand.</p>
+              </div>
+              <div class="tags">
+                <span class="tag">Infrastructure</span><span class="tag">Flood Resilience</span><span class="tag">Data</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-preview bot-preview" aria-hidden="true">
+              <span class="preview-label">AI Interface</span>
+              <div class="bubble">How does momentum change in a collision?</div>
+              <div class="bubble you">Can you explain it without giving away the answer?</div>
+              <div class="bubble">Absolutely — start by comparing the system before and after impact…</div>
+              <div class="bot-input"></div>
+            </div>
+            <div class="project-body">
+              <div>
+                <div class="project-num">Project 03</div>
+                <h3><a href="https://cornellbot.com" target="_blank" rel="noopener">CornellBot.com ↗</a></h3>
+                <p>An AI assistant experiment for exploring large language models, prompt design, interfaces and practical ways people can work with AI.</p>
+              </div>
+              <div class="tags">
+                <span class="tag">AI</span><span class="tag">Software</span><span class="tag">Experiment</span>
+              </div>
+            </div>
+          <div class="hello-friend-teaser">
+<div class="hello-friend-mark">Hello, friend</div>
+<div class="hello-friend-copy"><strong>Coming soon</strong><span>An extension of Grandma.care</span></div>
+</div></article>
+
+          <article class="project">
+            <div class="myco-gallery">
+              <figure>
+                <img src="nick-lions-mane-harvest.png"
+                     alt="Nick holding harvested lion's mane mushroom grow bags">
+                <figcaption>Lion's Mane Harvest</figcaption>
+              </figure>
+              <figure>
+                <img src="nick-mushroom-grow-tent.png"
+                     alt="Nick's indoor mushroom cultivation grow tent and jars">
+                <figcaption>Growing System</figcaption>
+              </figure>
+              <figure>
+                <img src="nick-oyster-mushroom-grow.png"
+                     alt="Nick holding an oyster mushroom grow block">
+                <figcaption>Oyster Grow</figcaption>
+              </figure>
+            </div>
+            <div class="myco-strip">
+              <figure>
+                <img src="nick-tiny-mushroom-terrarium.png"
+                     alt="Tiny mushroom growing in a terrarium ecosystem">
+              </figure>
+              <figure>
+                <img src="nick-wild-mushroom-field.png"
+                     alt="Wild mushroom photographed outdoors">
+              </figure>
+            </div>
+            <div class="myco-linkbar">
+              More mushroom experiments and finds at
+              <a href="https://instagram.com/lonestarmyco" target="_blank" rel="noopener">@lonestarmyco ↗</a>
+            </div>
+            <div class="project-body">
+              <div>
+                <div class="project-num">Project 04</div>
+                <h3><a href="https://instagram.com/lonestarmyco" target="_blank" rel="noopener">Mushroom Automation ↗</a></h3>
+                <p>An indoor gourmet mushroom growing system combining biology, environmental controls, sensors and hands-on experimentation with humidity, light and growing conditions.</p>
+              </div>
+              <div class="tags">
+                <span class="tag">Automation</span><span class="tag">Sensors</span><span class="tag">Biology</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="soccer" class="soccer-section">
+      <div class="wrap">
+        <div class="soccer-intro">
+          <div>
+            <div class="section-kicker">Beyond Engineering</div>
+            <h2>Soccer has shaped how I work.</h2>
+          </div>
+          <p>
+            I’ve played competitive soccer for years, including varsity soccer at Southlake Carroll
+            and club soccer with the Dallas Texans. The game is a big part of who I am: it has taught
+            me how to communicate quickly, adapt when a plan changes, compete, and work toward something
+            that only succeeds when the whole team does.
+          </p>
+        </div>
+
+        <div class="soccer-gallery">
+          <figure class="soccer-photo hero-soccer">
+            <img src="nick-dallas-texans-dribbling-01.jpg" alt="Nick competing in a Dallas Texans soccer match">
+            <figcaption class="caption">Dallas Texans • Club Soccer</figcaption>
+          </figure>
+          <figure class="soccer-photo">
+            <img src="nick-dallas-texans-ball-control.jpg" alt="Nick controlling the ball during a Dallas Texans match">
+            <figcaption class="caption">Competition + Focus</figcaption>
+          </figure>
+          <figure class="soccer-photo">
+            <img src="nick-dallas-texans-match-02.jpg" alt="Nick carrying the ball past a defender">
+            <figcaption class="caption">Dallas Texans</figcaption>
+          </figure>
+          <figure class="soccer-photo portrait">
+            <img src="nick-carroll-dragons-soccer-portrait.jpg" alt="Nick in his Southlake Carroll Dragons soccer uniform">
+            <figcaption class="caption">Carroll Dragons • Varsity</figcaption>
+          </figure>
+          <figure class="soccer-photo">
+            <img src="nick-carroll-dragons-soccer-smoke.jpg" alt="Nick in a Carroll Dragons soccer portrait">
+            <figcaption class="caption">Dragon Soccer</figcaption>
+          </figure>
+        </div>
+
+        <div class="soccer-details">
+          <div class="soccer-card">
+            <div class="team">Southlake Carroll</div>
+            <h3>Dragon Soccer</h3>
+            <p>
+              Varsity soccer at Carroll — balancing a demanding academic schedule with training,
+              competition and the responsibility of being part of a school team.
+            </p>
+          </div>
+          <div class="soccer-card">
+            <div class="team">Dallas Texans</div>
+            <h3>Competitive Club Soccer</h3>
+            <p>
+              High-level club soccer in North Texas, where development depends on repetition,
+              coaching, competition and learning to make decisions under pressure.
+            </p>
+          </div>
+        </div>
+
+        <p class="soccer-note">
+          Soccer also connects to how I think about engineering: understand the system, read what is
+          changing around you, communicate, and make the next decision well.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section id="studio" class="studio">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">02 / Nick Cornell Studio</div>
+          <h2>Photography, music + art.</h2>
+        </div>
+
+        <p class="studio-intro">
+          Engineering is how I think about systems. Photography, music and art are
+          different ways I explore ideas, structure, rhythm, composition, place
+          and the things that catch my attention.
+        </p>
+
+        <article class="feature-art">
+          <div class="art-image">
+            <!-- Replace this file with the actual Congressional Art Competition image -->
+            <img src="lackawanna-terminal.jpg"
+                 alt="Nick Cornell artwork of Lackawanna Terminal in Hoboken"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
+          </div>
+
+          <div class="art-copy">
+            <div>
+              <div class="award">2024 Congressional Art Competition • Regional Winner</div>
+              <h3>Lackawanna Terminal, Reimagined</h3>
+            </div>
+
+            <div>
+              <p>
+                A view of Hoboken's historic Lackawanna Terminal reinterpreted
+                through the visual language of an eighteenth-century Italian
+                engraving. The piece was selected in New Jersey's 8th
+                Congressional District and displayed at the U.S. Capitol.
+              </p>
+              <div class="tags">
+                <span class="tag">Digital Art</span>
+                <span class="tag">Architecture</span>
+                <span class="tag">Hoboken</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="creative-showcase">
+
+          <a class="creative-panel" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
+            <div class="creative-label">Studio / 01</div>
+            <h3>Photography ↗</h3>
+            <p>
+              Street scenes, architecture, cities and landscapes, with a focus on
+              composition, geometry, perspective and the built environment.
+            </p>
+          </a>
+
+          <a class="creative-panel music-panel" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
+            <div class="creative-label">Studio / 02</div>
+            <h3>Music ↗</h3>
+            <p>
+              Digital music production and composition using Logic Pro, FL Studio,
+              GarageBand, keyboards and pad-based production tools.
+            </p>
+          </a>
+
+          <div class="creative-panel">
+            <div class="creative-label">Studio / 03</div>
+            <h3>Art</h3>
+            <p>
+              Large-scale drawing, digital artwork and architecture-inspired visual
+              studies that explore form, repetition, place and structure.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="art-photo-block">
+          <img
+            src="nick-artwork.png"
+            alt="Nick Cornell standing beside a large black and white abstract artwork"
+          />
+        </div>
+
+        <div class="music-showcase">
+          <div class="music-head">
+            <div>
+              <div class="section-kicker">Music</div>
+              <h3>Here are a few of my music projects.</h3>
+            </div>
+
+            <a
+              class="button"
+              href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg"
+              target="_blank"
+              rel="noopener"
+            >
+              View Music Channel ↗
+            </a>
+          </div>
+
+          <div class="video-grid">
+
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/-X5uee8i16w"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/CczfVmkXy0g"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="video-card">
+              <iframe
+                src="https://www.youtube.com/embed/-gdb5FpmPig"
+                title="Music project by Nick Cornell"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="studio-links">
+          <a class="button" href="https://instagram.com/n.cornell_photography" target="_blank" rel="noopener">
+            Photography Instagram ↗
+          </a>
+          <a class="button" href="https://www.youtube.com/channel/UCyASTsT6EIp4qGh31BOYIMg" target="_blank" rel="noopener">
+            Music Channel ↗
+          </a>
+          <a class="button" href="https://nickcornellstudio.blogspot.com/?m=1" target="_blank" rel="noopener">
+            Art Archive ↗
+          </a>
+        </div>
+      </div>
+    </section>
+<section id="built">
       <div class="wrap">
         <div class="section-head">
           <div class="section-kicker">04 / Things I've Built</div>
@@ -1321,51 +2127,186 @@ h1{font-size:clamp(46px,6.5vw,82px)!important}h2{font-size:clamp(30px,4vw,50px)!
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="resume-section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">05 / About</div>
-          <h2>One person. A lot of interests.</h2>
+        <div class="resume-heading">
+          <div class="section-kicker">05 / Resume</div>
+          <div>
+            <h2>Experience, leadership + education.</h2>
+            <div class="resume-actions" style="margin-top:14px;">
+              <a class="button" href="Nicholas_Cornell_Resume.pdf" target="_blank" rel="noopener">View Full Resume ↗</a>
+            </div>
+          </div>
         </div>
 
-        <div class="about-grid">
-          <div class="lede">
-            <p>
-              I attend Southlake Carroll High School in Texas. I play varsity
-              soccer and club soccer with Dallas Texans, and outside school I spend
-              a lot of time building projects, taking photographs, making digital
-              art, producing music and experimenting with new technology.
-            </p>
-            <p>
-              I also attended Texas Boys State and participated in a Rotary Youth
-              Exchange to Brazil. Both experiences strengthened my interest in
-              public service, cities, culture and the way communities are built.
-            </p>
+        <div class="resume-grid">
+
+          <div class="resume-block">
+            <div class="resume-label">Education</div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Carroll Senior High School — Southlake, Texas</strong>
+                <p>Advanced coursework includes AP Calculus AB, AP Physics 1, AP English IV, AP Business & Personal Finance, AP Statistics, AP English Language, AP Psychology, AP European History and AP Computer Science Principles.</p>
+              </div>
+              <div class="resume-date">2024–Present</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Saint Peter's Preparatory School — Jersey City, New Jersey</strong>
+              </div>
+              <div class="resume-date">2023–2024</div>
+            </div>
           </div>
 
-          <div class="about-facts">
-            <div class="fact">
-              <strong>Engineering</strong>
-              <span>Civil, construction, systems, resilient infrastructure</span>
+          <div class="resume-block">
+            <div class="resume-label">Engineering + Technology</div>
+
+            <div class="resume-item">
+              <div>
+                <strong>City of Southlake Public Works — Engineering Intern</strong>
+                <p>Plan review, field inspections, drainage and flood mitigation, stormwater infrastructure, water systems and municipal projects; exposure to AutoCAD and civil engineering.</p>
+              </div>
+              <div class="resume-date">2026–Present</div>
             </div>
-            <div class="fact">
-              <strong>Technology</strong>
-              <span>AI, web apps, Raspberry Pi, automation</span>
+
+            <div class="resume-item">
+              <div>
+                <strong>SurgeWatch — Founder & Developer</strong>
+                <p>Built an address-based flood-risk platform integrating FEMA, NOAA, USGS, weather, elevation, soil, river and mapping data.</p>
+              </div>
             </div>
-            <div class="fact">
-              <strong>Visual Work</strong>
-              <span>Photography, music and visual art</span>
+
+            <div class="resume-item">
+              <div>
+                <strong>Grandma.care / HelloFriend — Developer</strong>
+                <p>Developed a web platform supporting independent living for older adults through reminders, family communication, scheduling and assistance.</p>
+              </div>
             </div>
-            <div class="fact">
-              <strong>Outside the Studio</strong>
-              <span>Varsity soccer, club soccer, music production</span>
+
+            <div class="resume-item">
+              <div>
+                <strong>CornellBot — Developer</strong>
+                <p>Built and self-hosted an AI web platform using Linux, APIs and web deployment technologies.</p>
+              </div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Mushroom Cultivation & Automation</strong>
+                <p>Independent cultivation and automation project using controlled growing environments and environmental monitoring.</p>
+              </div>
+            </div>
+
+            <div class="resume-tech">
+              <strong>Technical:</strong> AutoCAD (self-taught), JavaScript, HTML/CSS, GitHub, Supabase, Vercel, Linux, APIs, GIS/mapping tools
             </div>
           </div>
+
+          <div class="resume-block">
+            <div class="resume-label">Leadership + Activities</div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Junior World Affairs Council — Founder & President</strong>
+                <p>Founded the Carroll Senior High School chapter affiliated with the World Affairs Council of Dallas/Fort Worth.</p>
+              </div>
+              <div class="resume-date">2026–Present</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Rotary International Youth Exchange — Brazil</strong>
+                <p>Selected for exchange in Paraná, Brazil; lived with a host family, learned basic Portuguese, and gained exposure to Brazilian culture, industry and engineering.</p>
+              </div>
+              <div class="resume-date">Summer 2026</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>American Legion Texas Boys State — State Delegate</strong>
+                <p>Selected for statewide civic leadership program and elected State Delegate.</p>
+              </div>
+              <div class="resume-date">2026</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Carroll Varsity Soccer + Dallas Texans Club Soccer</strong>
+                <p>Varsity player and competitive club player; All-District Honorable Mention.</p>
+              </div>
+              <div class="resume-date">2024–Present</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>SASO — Student Advisory Council</strong>
+                <p>Elected to student leadership council supporting community service initiatives.</p>
+              </div>
+              <div class="resume-date">2026–2027</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>TED-Ed Club — Director of AV</strong>
+                <p>Managed audiovisual production and presented a talk on sports as a universal language.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <div class="resume-label">Photography, Art + Music</div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Photography & Visual Art — @n.cornell_photography</strong>
+                <p>Independent photographer and artist focused on architecture, cities, landscapes and the built environment.</p>
+              </div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Congressional Art Competition — Regional Winner</strong>
+                <p>Won in New Jersey's 8th Congressional District for an original work depicting Hoboken's historic Lackawanna Terminal.</p>
+              </div>
+              <div class="resume-date">2024</div>
+            </div>
+
+            <div class="resume-item">
+              <div>
+                <strong>Music Production</strong>
+                <p>Produces original digital music using FL Studio, GarageBand and Logic Pro; publishes original work and music videos on YouTube.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-block wide">
+            <div class="resume-label">Additional Leadership + Service</div>
+
+            <div class="resume-grid" style="gap:0 34px;">
+              <div class="resume-item">
+                <div>
+                  <strong>Mercy Street — Youth Soccer Coach</strong>
+                  <p>Assistant coach for U12 youth soccer.</p>
+                </div>
+                <div class="resume-date">2024</div>
+              </div>
+
+              <div class="resume-item">
+                <div>
+                  <strong>Superintendent's Youth Leadership Council — Carroll ISD</strong>
+                  <p>Selected for district-level student leadership and student representation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+<section id="contact" class="contact">
       <div class="wrap">
         <div class="section-kicker">06 / Contact</div>
         <h2>Want to see what I’m working on next?</h2>
