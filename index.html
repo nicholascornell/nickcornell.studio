@@ -2330,6 +2330,54 @@ h1{
 @media(max-width:620px){.grandma-feature{grid-template-columns:1fr!important}.grandma-demo-small{height:210px!important}.grandma-demo-small .video-frame{height:182px!important}}
 </style>
 
+
+<style id="v10-fixes">
+/* HelloFriend logo: fit the complete supplied logo, no clipping */
+.hello-logo-fixed{
+  height:205px!important;
+  padding:12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  background:#fff!important;
+}
+.hello-logo-fixed img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  display:block!important;
+}
+
+/* Studio heading only appears once via the green section label */
+#studio .section-head h2{
+  display:none!important;
+}
+
+/* Art order: Nick | copy | Lackawanna */
+.art-horizontal-reversed{
+  grid-template-columns:.72fr 1fr .9fr!important;
+}
+.art-horizontal-reversed .art-terminal{
+  border-right:0!important;
+  border-left:1px solid rgba(255,255,255,.14)!important;
+}
+.art-horizontal-reversed .art-horizontal-copy{
+  border-right:1px solid rgba(255,255,255,.14)!important;
+}
+
+@media(max-width:900px){
+  .art-horizontal-reversed{grid-template-columns:1fr 1fr!important}
+  .art-horizontal-reversed .art-horizontal-copy{grid-column:1/-1!important}
+}
+@media(max-width:620px){
+  .hello-logo-fixed{height:170px!important}
+  .art-horizontal-reversed{grid-template-columns:1fr!important}
+  .art-horizontal-reversed .art-horizontal-copy{grid-column:auto!important}
+}
+</style>
+
 </head>
 
 <body>
@@ -2338,24 +2386,8 @@ h1{
       <div>
         <div class="eyebrow">Civil Engineering + Technology + Creative Work</div>
         <h1>Nick<br>Cornell</h1>
-        <p class="hero-copy">I build tools that turn real-world problems into things you can see, test and improve.</p>
-      </div>
-
-      <div class="hero-side">
-        <a class="hero-stat" href="#current-project">
-          <strong>01</strong>
-          <span>Infrastructure</span>
-        </a>
-        <a class="hero-stat" href="#portfolio">
-          <strong>02</strong>
-          <span>AI + Technology</span>
-        </a>
-        <a class="hero-stat" href="#studio">
-          <strong>03</strong>
-          <span>Design + Art</span>
-        </a>
-      </div>
-    </div>
+        <p class="hero-copy">I build things. I’m never bored.</p>
+      </div></div>
   </header>
 <main>
 
@@ -2447,9 +2479,9 @@ h1{
 
           <!-- HELLO FRIEND -->
           <article class="tech-card hello-card">
-            <div class="hello-logo-wrap hello-correct-logo">
-              <img src="hellofriend-care-logo.png" alt="HelloFriend.care — Independent living helped by a friend.">
-            </div>
+            <div class="hello-logo-wrap hello-logo-fixed">
+      <img src="hellofriend-care-logo.png" alt="HelloFriend.care logo">
+    </div>
             <div class="tech-card-head hello-head">
               <div>
                 <div class="project-num">In Progress</div>
@@ -2624,11 +2656,6 @@ h1{
             </p>
           </div>
         </div>
-
-        <p class="soccer-note">
-          Soccer also connects to how I think about engineering: understand the system, read what is
-          changing around you, communicate, and make the next decision well.
-        </p>
       </div>
     </section>
 
@@ -2647,19 +2674,12 @@ h1{
           and the things that catch my attention.
         </p>
 
-                <article class="art-horizontal">
-          <div class="art-horizontal-image art-terminal">
-            <img src="lackawanna-terminal.jpg"
-                 alt="Nick Cornell artwork of Lackawanna Terminal in Hoboken"
-                 onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
-          </div>
-
+                <article class="art-horizontal art-horizontal-reversed">
           <div class="art-horizontal-image art-nick">
             <img src="nick-artwork.png"
                  alt="Nick Cornell standing beside his artwork"
                  onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
           </div>
-
           <div class="art-horizontal-copy">
             <div class="award">2024 Congressional Art Competition • Regional Winner</div>
             <h3>Lackawanna Terminal, Reimagined</h3>
@@ -2673,6 +2693,11 @@ h1{
               <span class="tag">Architecture</span>
               <span class="tag">Hoboken</span>
             </div>
+          </div>
+          <div class="art-horizontal-image art-terminal">
+            <img src="lackawanna-terminal.jpg"
+                 alt="Nick Cornell artwork of Lackawanna Terminal in Hoboken"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('missing');">
           </div>
         </article>
 
