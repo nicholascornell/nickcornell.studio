@@ -2491,6 +2491,60 @@ h1{
 }
 </style>
 
+
+<style id="v15-music-restored">
+.music-production-section{
+  background:#0f1217;
+  color:#fff;
+  padding:44px 0 !important;
+}
+.music-production-section .section-kicker{
+  color:var(--acid);
+}
+.music-production-head{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:end;
+  margin-bottom:18px;
+}
+.music-production-head h2{
+  margin:0 0 8px !important;
+  font-size:clamp(30px,4vw,48px) !important;
+}
+.music-production-head p{
+  margin:0;
+  color:#c9ced3;
+  font-size:13px !important;
+}
+.music-video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.music-video-card{
+  aspect-ratio:16 / 9;
+  border-radius:12px;
+  overflow:hidden;
+  background:#1c2128;
+  border:1px solid rgba(255,255,255,.14);
+}
+.music-video-card iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+@media(max-width:900px){
+  .music-production-head{
+    grid-template-columns:1fr;
+  }
+  .music-video-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -2876,7 +2930,62 @@ h1{
         </div>
       </div>
     </section>
-    <section id="about" class="resume-section">
+    
+    <section id="music" class="music-production-section">
+      <div class="wrap">
+        <div class="section-kicker">Music Production</div>
+
+        <div class="music-production-head">
+          <div>
+            <h2>Original music + production.</h2>
+            <p>
+              Original music produced with Logic Pro, FL Studio and GarageBand.
+            </p>
+          </div>
+
+          <a class="button"
+             href="https://www.youtube.com/@nickcornellmusic"
+             target="_blank"
+             rel="noopener">
+            YouTube Channel ↗
+          </a>
+        </div>
+
+        <div class="music-video-grid">
+          <div class="music-video-card">
+            <iframe
+              src="https://www.youtube.com/embed/-X5uee8i16w"
+              title="Nick Cornell original music video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="music-video-card">
+            <iframe
+              src="https://www.youtube.com/embed/CczfVmkXy0g"
+              title="Nick Cornell original music video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="music-video-card">
+            <iframe
+              src="https://www.youtube.com/embed/-gdb5FpmPig"
+              title="Nick Cornell original music video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="about" class="resume-section">
       <div class="wrap">
         <div class="resume-topline">
           <div class="section-kicker">05 / Resume</div>
